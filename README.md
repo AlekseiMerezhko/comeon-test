@@ -1,4 +1,11 @@
+### Run Project
+
+```javascript
+yarn start
+```
+
 ![comeon-javascript-test-site](http://b5fa2dae67bf7ee0b0e5-e0d56d540e31d5f2f9430984d20d712d.r41.cf3.rackcdn.com/comeon-javascript-test_3.png)
+
 # comeon-javascript-test
 
 Applicant's test for Javascript coders.
@@ -26,31 +33,32 @@ These parts needs all to be completed for the assignment to be complete:
 
 ### Login functionality
 
-* Connect the login form to the /login ajax call.
-* On valid username/password, transition to the games list screen.
-* On invalid username/password, provide feedback and allow to try again.
+- Connect the login form to the /login ajax call.
+- On valid username/password, transition to the games list screen.
+- On invalid username/password, provide feedback and allow to try again.
 
 ### Log out functionality
 
-* Connect the log out button to the /logout ajax call.
-* On valid log out, transition to login screen with empty input fields.
+- Connect the log out button to the /logout ajax call.
+- On valid log out, transition to login screen with empty input fields.
 
 ### Games list screen
 
-* Requires user to be logged in
-* List all games from the /games ajax call.
-* List categories from /categories ajax call.
-* Provide functionality for filtering by typing.
-* Provide functionality to filter by category.
-* Make it possible to start a game by clicking on the play icon.
+- Requires user to be logged in
+- List all games from the /games ajax call.
+- List categories from /categories ajax call.
+- Provide functionality for filtering by typing.
+- Provide functionality to filter by category.
+- Make it possible to start a game by clicking on the play icon.
 
 ### Game play screen
 
-* Requires user to be logged in
-* Load the selected game via the provided API
-* Provide a way to go back to the Games list screen
+- Requires user to be logged in
+- Load the selected game via the provided API
+- Provide a way to go back to the Games list screen
 
 ### Setup mock api
+
 ```javascript
 npm install -g json-server
 ```
@@ -60,9 +68,11 @@ json-server --watch mock/mock-data.json --port 3001 --middlewares mock/mock-api.
 ```
 
 ## API
+
 There are four methods on the API: login, logout, games, and categories.
 
 ### Login
+
 Path: /login
 
 Will give you player information.
@@ -80,68 +90,71 @@ password: rock
 ```
 
 ##### Request
+
 ```javascript
-fetch('http://localhost:3001/login', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: 'rebecka',
-                password: 'secret'
-            })
-        }
-);
+fetch("http://localhost:3001/login", {
+  method: "post",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    username: "rebecka",
+    password: "secret",
+  }),
+});
 ```
 
 ##### Response
+
 ```javascript
 {
 	status: 'success',
 	player: {
             name: 'Rebecka Awesome',
             avatar: 'images/avatar/rebecka.jpg',
-            event: 'Last seen gambling on Starburst.'            
+            event: 'Last seen gambling on Starburst.'
     }
 }
 ```
 
 ### Log out
+
 Path: /logout
 
 Use the current player's username.
 
 ##### Request
+
 ```javascript
-fetch('http://localhost:3001/logout', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: 'rebecka'
-            })
-        }
-);
+fetch("http://localhost:3001/logout", {
+  method: "post",
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    username: "rebecka",
+  }),
+});
 ```
 
 ### Games and Categories
+
 These methods are located on paths /games and /categories.
 
 Please explore the response of these methods.
-```javascript
-fetch('http://localhost:3001/games', { method: 'get' });
-```
 
+```javascript
+fetch("http://localhost:3001/games", { method: "get" });
+```
 
 ## Loading a game
 
 We have written an API for loading the games. Here's a simple example of how to load a game through our API:
 
 ```javascript
-comeon.game.launch('starburst');
+comeon.game.launch("starburst");
 ```
 
 It basically takes a game code as an in parameter.
@@ -150,7 +163,7 @@ The div with id game-launch will be replaced with an object tag that loads the g
 ## More info
 
 - Use of React is encouraged.
-- Use of [jQuery](https://jquery.com/) is discouraged. 
+- Use of [jQuery](https://jquery.com/) is discouraged.
 - External libraries used in this test: [Semantic UI](http://semantic-ui.com/), [json-server](https://github.com/typicode/json-server)
 
 ## Found a bug?
@@ -158,5 +171,5 @@ The div with id game-launch will be replaced with an object tag that loads the g
 Pull requests welcome, and maybe [we have a job for you](http://jobs.comeon.com/)? :)
 
 ## How to Submit the Home Assignment
-We would prefer that you push the code to a git repo and send us the link, but you could also send us your code in a compressed file in an email.
 
+We would prefer that you push the code to a git repo and send us the link, but you could also send us your code in a compressed file in an email.
